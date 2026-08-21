@@ -1,0 +1,41 @@
+﻿/*
+Q24: Write a program to calculate electricity bill based on units consumed with these rates:
+First 100 units at â‚¹5/unit
+Next 100 units at â‚¹7/unit
+Next 100 units at â‚¹10/unit
+Above at â‚¹12/unit
+
+Sample Test Cases:
+Input 1:
+50
+Output 1:
+Bill = â‚¹250
+
+Input 2:
+150
+Output 2:
+Bill = â‚¹850
+*/
+
+#include <stdio.h>
+
+int main() {
+    int units;
+    double bill = 0;
+
+    printf("Enter electricity units consumed: ");
+    if (scanf("%d", &units) == 1 && units >= 0) {
+        if (units <= 100) {
+            bill = units * 5.0;
+        } else if (units <= 200) {
+            bill = 100 * 5.0 + (units - 100) * 7.0;
+        } else if (units <= 300) {
+            bill = 100 * 5.0 + 100 * 7.0 + (units - 200) * 10.0;
+        } else {
+            bill = 100 * 5.0 + 100 * 7.0 + 100 * 10.0 + (units - 300) * 12.0;
+        }
+        printf("Bill = â‚¹%.2f\n", bill);
+    }
+
+    return 0;
+}
