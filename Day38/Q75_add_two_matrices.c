@@ -1,0 +1,46 @@
+﻿/*
+Q75: Add two matrices.
+
+Sample Test Cases:
+Input 1:
+2 2
+1 2
+3 4
+5 6
+7 8
+Output 1:
+6 8
+10 12
+*/
+
+#include <stdio.h>
+
+int main() {
+    int r, c;
+
+    printf("Enter rows and columns: ");
+    if (scanf("%d %d", &r, &c) == 2 && r > 0 && c > 0) {
+        int a[r][c], b[r][c], sum[r][c];
+
+        printf("Enter elements of matrix A:\n");
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) scanf("%d", &a[i][j]);
+        }
+
+        printf("Enter elements of matrix B:\n");
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) scanf("%d", &b[i][j]);
+        }
+
+        printf("Sum of matrices:\n");
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                sum[i][j] = a[i][j] + b[i][j];
+                printf("%d ", sum[i][j]);
+            }
+            printf("\n");
+        }
+    }
+
+    return 0;
+}
